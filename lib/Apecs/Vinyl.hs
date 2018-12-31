@@ -28,7 +28,7 @@ type WorldRec' cs = WorldRec (EntityCounter ': cs)
 -- suitable as an interpretation functor for Vinyl.
 newtype StoreFor c = StoreFor { getStoreFor :: Storage c }
 
-instance (Monad m, NatToInt (RIndex c cs), Component c) => Has (WorldRec cs) m c where
+instance {-# OVERLAPPABLE #-} (Monad m, NatToInt (RIndex c cs), Component c) => Has (WorldRec cs) m c where
   getStore = asks $ \(WorldRec stores) -> getStoreFor (aget @c stores)
 
 -- | Helper class for the implementation of @'initWorldRec'@.
