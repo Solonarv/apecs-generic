@@ -16,13 +16,14 @@ extra-source-files:  CHANGELOG.md, README.md
 
 library
   exposed-modules:     Apecs.Vinyl
+                     , Generic.Util.Coerce
   -- other-modules:
   other-extensions:    UndecidableInstances
   build-depends:       base >=4.12 && <4.13
                      , apecs >= 0.5.1.0 && < 0.8
-                     , vinyl ^>= 0.10.0
                      , mtl ^>= 2.2.2
   hs-source-dirs:      lib
   default-language:    Haskell2010
   default-extensions:  TypeOperators, TypeApplications, ScopedTypeVariables, DataKinds, FlexibleInstances
-                     , MultiParamTypeClasses, FlexibleContexts
+                     , MultiParamTypeClasses, FlexibleContexts, PatternSynonyms, ViewPatterns
+                     , FunctionalDependencies, TypeFamilies, DeriveFunctor, DeriveFoldable, DeriveTraversable
